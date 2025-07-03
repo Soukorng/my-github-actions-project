@@ -2,11 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-      - main   # Run on pushes to main branch
+    branches: [ main ]
   pull_request:
-    branches:
-      - main   # Run on PRs targeting main branch
+    branches: [ main ]
 
 jobs:
   build:
@@ -19,14 +17,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'   # Specify Node.js version
+          node-version: '16'
 
       - name: Install dependencies
         run: |
           npm install
-          # or use: yarn install if you prefer yarn
 
       - name: Run tests
         run: |
           npm test
-          # or use: yarn test if you prefer yarn
